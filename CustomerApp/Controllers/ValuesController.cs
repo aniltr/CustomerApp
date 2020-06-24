@@ -1,18 +1,21 @@
-﻿using System;
+﻿using CustApp.DataContext;
+using CustApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace CustomerApp.Controllers
+namespace CustApp.Controllers
 {
     public class ValuesController : ApiController
     {
+        private readonly CustomerContext context = new CustomerContext();
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<Customer> Get()
         {
-            return new string[] { "value1", "value2" };
+            return context.Customers;
         }
 
         // GET api/values/5
